@@ -239,7 +239,7 @@ NGINX fonctionne, les bonnes location de server et les bons ports sont opératio
 
 Pour la permission des dossiers site1 et site2, je me suis permis de les mettres en 704 (700 pour l'admin qui possedera tout les droit sur les fichiers et le 4 pour l'user qui pourra uniquement lire le dossier (on aurait pu mettre 700 mais dans le doute on autorise la lecture du dossier pour le visiteur (messire ! un sarrasin !)))
 
-![](./images/sarrazin.gif)
+![](./images/sarazin.gif)
 
 ![](./images/transition.JPG)
 
