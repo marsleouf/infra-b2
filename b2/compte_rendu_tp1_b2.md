@@ -340,7 +340,7 @@ archive_compress() {
 (franchement cimer fraté)
 , ok je t'ai piqué ton code mais bon je m'en serais jamais sortis avec un truc fonctionnel. j'ai saisi comment fonctionne tn script, je peux te l'expliquer oralement pour te le prouver mas jamais j'aurais pu l'écrire de moi même. srry)
 
-pour éxécuter le script toutes les heures, on pop cette ligne dans la "user's crontab" : '@hourly /home/vinny/tp1_backup.sh >/var/log/backup.log 2>&1' (ou '0 * * * * /home/vinny/tp1_backup.sh >/var/log/backup.log 2>&1' c'est la même chose)
+pour éxécuter le script toutes les heures, on pop cette ligne dans la "user's crontab" : `@hourly /home/vinny/tp1_backup.sh >/var/log/backup.log 2>&1` (ou `0 * * * * /home/vinny/tp1_backup.sh >/var/log/backup.log 2>&1` c'est la même chose)
 
 Et là c'est le drame... le script de Messire Godefroy de Montmirail ne marche pas!
 
