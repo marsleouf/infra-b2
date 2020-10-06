@@ -6,7 +6,7 @@
 
 Pour commencer, je voulais spécifier la taille du disque mais il connaissait pas l'attribut `disk`. Alors je lui ai fait gober le plugin avec `vagrant plugin install vagrant-disksize` (mais ca a jamais marché la vm reste bloqué a 40gb )
 
-![](./images/anyway.jpg)
+![](../images/anyway.jpg)
 
 Donc vagrant..., je te laisse aller check le vagrantfile + script pour cette première partie avant de regarder la suite (comme pour toutes les autres partie en fait).
 
@@ -324,7 +324,7 @@ Bringing machine 'hello' up with 'virtualbox' provider...
 
 Et oilàv, tu viens de te farcir 200 lignes de codes juste pour dire "it works". cool nan ?
 
-![](./images/bipboy.gif)
+![](../images/bipboy.gif)
 
 Ca run, c'est cool donc ca fonctionne, Allé on passe au 2.
 
@@ -354,14 +354,14 @@ Petite précision, le patron de vm ne s'appelle pas "b2-tp2-centos" comme demand
 
 Be like :
 
-![](./images/sloth.jpg)
+![](../images/sloth.jpg)
 
 
 ## 3 Qu'est ce que je fais de ma vie...
 
 Bon, multi nodes... bah grossomerdo, c'est la même chose qu'en haut mais en double sur le même vagrantfile.
 
-![](./images/thor.jpg)
+![](../images/thor.jpg)
 
 Voilà... pas besoin de trop réfléchir non plus.
 
@@ -451,7 +451,7 @@ Plusieurs points.
 
 Pourquoi ? Parce que les ip ont décider de me les briser menu. Sans mythos, je suis resté dessus en tentant de changer les ip, les hosts, les routes, tout ce que je pouvais pour résoudre les bémols, mais toujours le même ou un nouveau qui pop sans prévenir.
 
-![](./images/bug.jpg)
+![](../images/bug.jpg)
 
 Here un petit appercu (tiens bon lecture):
 
@@ -598,7 +598,7 @@ Carte Ethernet VirtualBox Host-Only Network #2 :
 
 Malgrès tout, ça reste un problème de réseau puisque que `Destination Host Prohibited` ramenais encore et toujours sa fraise... donc bon.
 
-![](./images/suicide.jpg)
+![](../images/suicide.jpg)
 
 Mais c'est pas catastrophique non plus... si ?
 
