@@ -38,7 +38,7 @@ wpa_supplicant.service                        disabled
 ```
 
 # I SS (services systemd)
-## 1 Intro
+## 1 - Intro
 
 ```bash
 [vagrant@tp3 .ssh]$ systemctl list-unit-files
@@ -108,7 +108,7 @@ Count the line where `running` appears and you got it. (btw it's 23)
   systemd-vconsole-setup.service                                                           loaded active exited    Setup Virtual Console
 ```
 
-One failed -> selinux because deactivated
+One failed -> selinux because deactivated.
 16 exited, why ? 
 
 ![](../images/why.jpg)
@@ -153,7 +153,7 @@ There is 32 enabled. No comment
 
 ![](../images/transition.JPG)
 
-## 2 analyse d'un service
+## 2 - Analyse d'un service
 
 ### NGINX
 
@@ -326,3 +326,5 @@ grep: /run/systemd/transient/*: No such file or directory
 
 (cimer le bro qui m'a aidé pour les arguments de commande (ps si tu veux savoir qui cé, il est proche d'un film d'animation avec un roi lémurien))
 
+## 3 - Création d'un servcie
+### A -  Serveur web
