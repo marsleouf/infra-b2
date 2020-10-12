@@ -53,7 +53,7 @@ systemd-tmpfiles-clean.timer                  static
 
 There is 251 services systemd available in the machine
 
-
+![](../images/moyen.jpg)
 
 ```bash
 [vagrant@tp3 .ssh]$ systemctl | grep running
