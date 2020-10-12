@@ -265,7 +265,7 @@ grep: /proc/2282/task/2282/clear_refs: Permission denied
 So many `Permission denied`. But what if I do it with `sudo` ?
 
 ```bash
-[vagrant@tp3 ~]$                                                                                                        [vagrant@tp3 ~[vagrant@tp3 ~]$ sudo grep -r "WantedBy=multi-user.target" /
+[vagrant@tp3 ~[vagrant@tp3 ~]$ sudo grep -r "WantedBy=multi-user.target" /
 grep: /proc/sys/fs/binfmt_misc/register: Invalid argument
 grep: /proc/sys/net/ipv4/route/flush: Permission denied
 grep: /proc/sys/net/ipv6/conf/all/stable_secret: Input/output error
