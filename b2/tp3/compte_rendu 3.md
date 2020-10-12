@@ -195,7 +195,7 @@ Then,
 
 On remarque que les lignes `Process: ` donne aussi le path du service, point barre, on avance.
 
-![](../images/transition.jpg)
+![](../images/transition.JPG)
 
 Bon la suite:
 
