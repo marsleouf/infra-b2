@@ -108,7 +108,7 @@ Count the line where `running` appears and you got it. (btw it's 23)
   systemd-vconsole-setup.service                                                           loaded active exited    Setup Virtual Console
 ```
 
-One failed -> selinux because deactivated.
+One failed -> selinux because deactivated  
 16 exited, why ? 
 
 ![](../images/why.jpg)
