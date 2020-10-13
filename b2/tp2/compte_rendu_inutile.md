@@ -442,7 +442,7 @@ Bringing machine 'node2' up with 'virtualbox' provider...
 Happy ? Because me not.
 
 
-## 4 Je vends mon âme aux plus offrant
+## 4 Je vends mon âme au plus offrant
 
 ... Alors...
 

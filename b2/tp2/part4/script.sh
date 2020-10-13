@@ -149,4 +149,4 @@ archive_and_compress "${target_path}"
 # Rotate backups (only keep the most recent ones)
 delete_oldest_backups
 
-# j'ai récup ton script parce que le mien fonctionnait pas du tout voilààà
+# j'ai récup ton script parce que le mien fonctionnait pas du tout au tp1 voilààà

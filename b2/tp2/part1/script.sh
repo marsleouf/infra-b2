@@ -1,4 +1,7 @@
-#!/usr/bin/bash
+# !/usr/bin/bash
+# marsleouf
+# 13/10/2020
+# installer vim
 
 sudo yum install -y vim
 
