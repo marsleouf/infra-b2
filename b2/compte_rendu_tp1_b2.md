@@ -291,6 +291,9 @@ Je fais donc l'appel à un ami pour avoir quleque chose de fonctionnel, Messire 
 
 ```sh
 #!/bin/bash
+# it4 éco +
+# 13/10/2020
+# script de backup serveur web
 
 target_path="${1}"
 target_dir=$( echo "${target-path/}" | rev | cut -d'/' -f1 | rev)
