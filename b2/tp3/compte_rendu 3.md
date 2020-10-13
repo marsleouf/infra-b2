@@ -328,3 +328,49 @@ grep: /run/systemd/transient/*: No such file or directory
 
 ## 3 - Création d'un servcie
 ### A -  Serveur web
+
+(merci pour le coup de main comrade)
+
+![](../images/soviet1.png)
+
+```bash
+[vagrant@tp3 system]$ python2 -m SimpleHTTPServer 8080
+Serving HTTP on 0.0.0.0 port 8080 ...
+^CTraceback (most recent call last):
+  File "/usr/lib64/python2.7/runpy.py", line 162, in _run_module_as_main
+    "__main__", fname, loader, pkg_name)
+  File "/usr/lib64/python2.7/runpy.py", line 72, in _run_code
+    exec code in run_globals
+  File "/usr/lib64/python2.7/SimpleHTTPServer.py", line 220, in <module>
+    test()
+  File "/usr/lib64/python2.7/SimpleHTTPServer.py", line 216, in test
+    BaseHTTPServer.test(HandlerClass, ServerClass)
+  File "/usr/lib64/python2.7/BaseHTTPServer.py", line 599, in test
+    httpd.serve_forever()
+  File "/usr/lib64/python2.7/SocketServer.py", line 236, in serve_forever
+    poll_interval)
+  File "/usr/lib64/python2.7/SocketServer.py", line 155, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+
+[vagrant@tp3 system]$ firewall-cmd --add-port=8080/tcp
+
+Authorization failed.
+    Make sure polkit agent is running or run the application as superuser.
+
+
+[vagrant@tp3 system]$ sudo !!
+sudo firewall-cmd --add-port=8080/tcp
+
+success
+[vagrant@tp3 system]$
+[vagrant@tp3 system]$ sudo firewall-cmd --add-port=8080/tcp --permanent
+^[[A^[[A^[[Asuccess
+^[[A[vagrant@tp3 systepython2 -m SimpleHTTPServer 8080
+Serving HTTP on 0.0.0.0 port 8080 ...
+10.2.1.1 - - [09/Oct/2020 17:07:48] "GET / HTTP/1.1" 200 -
+10.2.1.1 - - [09/Oct/2020 17:07:48] "GET / HTTP/1.1" 200 -
+10.2.1.1 - - [09/Oct/2020 17:07:49] code 404, message File not found
+10.2.1.1 - - [09/Oct/2020 17:07:49] "GET /favicon.ico HTTP/1.1" 404 -
+```
