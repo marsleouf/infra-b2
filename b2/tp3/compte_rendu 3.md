@@ -374,3 +374,146 @@ Serving HTTP on 0.0.0.0 port 8080 ...
 10.2.1.1 - - [09/Oct/2020 17:07:49] code 404, message File not found
 10.2.1.1 - - [09/Oct/2020 17:07:49] "GET /favicon.ico HTTP/1.1" 404 -
 ```
+
+And now, for my next number, i would like to return to the classics:
+
+```bash
+[vagrant@tp3 system]$ cat pyserveur.service
+[Unit]
+Description=Un serveur python ?
+[Service]
+Type=simple
+User=claquettechaussette
+
+Environment="PORT=8080"
+ExecStartPre=/usr/bin/sudo /usr/bin/firewall-cmd --add-port=${PORT}/tcp
+ExecStartPre=/usr/bin/sudo /usr/bin/firewall-cmd --reload
+ExecStart=/usr/bin/sudo /usr/bin/python2 -m SimpleHTTPServer ${PORT}
+ExecStopPost=/usr/bin/sudo /usr/bin/firewall-cmd --remove-port=${PORT}/tcp
+TimeoutSec=15000
+
+
+[Install]
+WantedBy=multi-user.target
+```
+
+n'en dis pas plus je sais que tu te souviens de cette fameuse péripétie de `lou clâquettechôsette`, tu vois très bien ce qu'il s'est passé, j'en déduis que par le pouvoir des Niquelalogiquenciens je peux skip les [explications]().
+
+Allé tchâo.
+
+
+
+En soit ca foncctionne et ça marche, quoi de mieux ?
+```bash
+[vagrant@tp3 ~]$ sudo systemctl status pyserveur.service
+● pyserveur.service - Un serveur python ?
+   Loaded: loaded (/etc/systemd/system/pyserveur.service; disabled; vendor preset: disabled)
+   Active: active (running) since Wed 2020-10-14 07:52:02 UTC; 6s ago
+  Process: 2337 ExecStartPre=/usr/bin/sudo /usr/bin/firewall-cmd --reload (code=exited, status=0/SUCCESS)
+  Process: 2332 ExecStartPre=/usr/bin/sudo /usr/bin/firewall-cmd --add-port=${PORT}/tcp (code=exited, status=0/SUCCESS)
+ Main PID: 2368 (sudo)
+   CGroup: /system.slice/pyserveur.service
+           ‣ 2368 /usr/bin/sudo /usr/bin/python2 -m SimpleHTTPServer 8080
+
+Oct 14 07:51:59 tp3 systemd[1]: Starting Un serveur python ?...
+Oct 14 07:51:59 tp3 sudo[2332]: claquettechaussette : TTY=unknown ; PWD=/ ; USER=root ; COMMAND=/usr/bin/firewall-cmd --add...8080/tcp
+Oct 14 07:52:01 tp3 sudo[2337]: claquettechaussette : TTY=unknown ; PWD=/ ; USER=root ; COMMAND=/usr/bin/firewall-cmd --reload
+Oct 14 07:52:02 tp3 systemd[1]: Started Un serveur python ?.
+Oct 14 07:52:02 tp3 sudo[2368]: claquettechaussette : TTY=unknown ; PWD=/ ; USER=root ; COMMAND=/usr/bin/python2 -m SimpleH...ver 8080
+Hint: Some lines were ellipsized, use -l to show in full.
+```
+
+### B -Sauvegarde
+
+Le script = ton script sans les `-r` après les `declare`.  
+Here le `.service`:
+
+```sh
+[Unit]
+Description=Le script de sauvegarde qui fonctionne pas depuis 2 tps
+
+[Service]
+ExecStart=/home/claquettechaussette/backup.sh /tmp
+User=claquettechaussette
+Group=wheel
+PIDFile=/var/run/backup/pid
+Environment=PATH=/usr/bin:/usr/local/bin
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Here son status une fois lancé:
+```bash
+[claquettechaussette@tp3 /]$ sudo systemctl status backup.service
+● backup.service - Le script de sauvegarde qui fonctionne pas depuis 2 tps
+   Loaded: loaded (/etc/systemd/system/backup.service; disabled; vendor preset: disabled)
+   Active: inactive (dead)
+
+Oct 14 15:15:33 tp3 systemd[1]: backup.service: main process exited, code=exited, status=1/FAILURE
+Oct 14 15:15:33 tp3 systemd[1]: Unit backup.service entered failed state.
+Oct 14 15:15:33 tp3 systemd[1]: backup.service failed.
+Oct 14 15:16:05 tp3 systemd[1]: Started Le script de sauvegarde qui fonctionne pas depuis 2 tps.
+Oct 14 15:16:05 tp3 systemd[1]: backup.service: main process exited, code=exited, status=1/FAILURE
+Oct 14 15:16:05 tp3 systemd[1]: Unit backup.service entered failed state.
+Oct 14 15:16:05 tp3 systemd[1]: backup.service failed.
+Oct 14 15:17:14 tp3 systemd[1]: Started Le script de sauvegarde qui fonctionne pas depuis 2 tps.
+Oct 14 15:17:14 tp3 backup.sh[3663]: [Oct 14 15:17:14] [INFO] Starting backup.
+Oct 14 15:17:14 tp3 backup.sh[3663]: [Oct 14 15:17:14] [INFO] Success. Backup tmp_201014_151714.tar.gz has been saved to /opt/backup/.
+Hint: Some lines were ellipsized, use -l to show in full.
+```
+
+Donc, dans les premières lignes, on remarque que le service a failed et dans les deux dernières, on est infromé d'un probable `success` du script (???). La sauvegarde serait dans `/opt/backup/` eh bien let's go checker ça:
+
+```bash
+[claquettechaussette@tp3 /]$ ls /opt/backup/
+tmp_201014_143947.tar.gz  tmp_201014_151245.tar.gz  tmp_201014_151714.tar.gz
+```
+
+...  
+Je comprends plus rien...
+
+Et maintenant le timer. Il se présente sous cette forme:
+
+```sh
+[Unit]
+Description=Execute backup every day at midnight
+
+[Timer]
+OnCalendar=*-*-* *:00:00
+Unit=backup.service
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Mais attend c'est pas le plus fou dans tout ça, regarde: 
+
+```bash
+[claquettechaussette@tp3 system]$ sudo systemctl enable backup.timer
+Created symlink from /etc/systemd/system/multi-user.target.wants/backup.timer to /usr/lib/systemd/system/backup.timer.
+[claquettechaussette@tp3 system]$ systemctl start backup.timer*
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
+Authentication is required to manage system services or units.
+Authenticating as: claquettechaussette
+Password:
+==== AUTHENTICATION COMPLETE ===
+[claquettechaussette@tp3 system]$ systemctl is-enabled backup.timer
+enabled
+[claquettechaussette@tp3 system]$ sudo systemctl start backup
+[claquettechaussette@tp3 system]$ systemctl status backup
+● backup.service - Le script de sauvegarde qui fonctionne pas depuis 2 tps
+   Loaded: loaded (/etc/systemd/system/backup.service; disabled; vendor preset: disabled)
+   Active: inactive (dead) since Wed 2020-10-14 15:53:48 UTC; 20s ago
+  Process: 3767 ExecStart=/home/claquettechaussette/backup.sh /tmp (code=exited, status=0/SUCCESS)
+ Main PID: 3767 (code=exited, status=0/SUCCESS)
+
+Oct 14 15:53:48 tp3 systemd[1]: Started Le script de sauvegarde qui fonctionne pas depuis 2 tps.
+Oct 14 15:53:48 tp3 backup.sh[3767]: [Oct 14 15:53:48] [INFO] Starting backup.
+Oct 14 15:53:48 tp3 backup.sh[3767]: [Oct 14 15:53:48] [INFO] Success. Backup tmp_201014_155348.tar.gz has been saved to /opt/backup/.
+Hint: Some lines were ellipsized, use -l to show in full.
+```
+
+Désormais, le backup se lance sans grogner ou retourner d'erreur. Comme quoi une fois qu'on lui a attribué une horloge il sait quoi faire. Tu la vois la métaphore ou pas ? Eh question bonus: sans temporalité, sans secondes, minutes, heures, jours, mois, année... On est quoi au final ?
+
+## [Develloppers feat. Godefroy](https://www.youtube.com/watch?v=KMU0tzLwhbE)
