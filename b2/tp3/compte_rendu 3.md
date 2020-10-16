@@ -1,6 +1,6 @@
 # Tp3 yes de la commande bash
 
-## 0 Prérequis
+## 0 - Prérequis
 
 
 -> go check vagrantfile (use utput.iso.repackage.lnk from tp2 because why not)
@@ -37,7 +37,7 @@ wpa_supplicant.service                        disabled
 155 unit files listed.
 ```
 
-# I SS (services systemd)
+# I - SS (services systemd)
 ## 1 - Intro
 
 ```bash
@@ -516,4 +516,57 @@ Hint: Some lines were ellipsized, use -l to show in full.
 
 Désormais, le backup se lance sans grogner ou retourner d'erreur. Comme quoi une fois qu'on lui a attribué une horloge il sait quoi faire. Tu la vois la métaphore ou pas ? Eh question bonus: sans temporalité, sans secondes, minutes, heures, jours, mois, année... On est quoi au final ?
 
-## [Develloppers feat. Godefroy](https://www.youtube.com/watch?v=KMU0tzLwhbE)
+## II - [Develloppers feat. Godefroy](https://www.youtube.com/watch?v=KMU0tzLwhbE)
+### 1 - Gestion de boot
+
+![](../images/mcgonagal.png)
+
+Ensuite fais un `ctrl + f` et tape ".service" dans la barre de recherche pour trouver tout les services présent sur le diagramme. Puis à toi de cherhcer les plus long à démarrer.  
+La légende raconte que les 3 grosses feignasses du groupe sont:
+> - systemd-logind.service (4.494s)
+> - chronyd.service (4.532s)
+> - polkit.service (4.580s)
+
+Voilà !
+
+### 2 - Gestion de l'heure ? (genre... sérieusement ?)
+
+C'est que t'as l'air sérieux en plus...
+```bash
+[vagrant@tp3 /]$ timedatectl
+      Local time: Wed 2020-10-14 17:54:54 UTC
+  Universal time: Wed 2020-10-14 17:54:54 UTC
+        RTC time: Wed 2020-10-14 17:19:34
+       Time zone: UTC (UTC, +0000)
+     NTP enabled: yes
+NTP synchronized: no
+ RTC in local TZ: no
+      DST active: n/a
+```
+
+Alors, sachant que Migwel possède trois pommes, que son ami Tuyo lui, a une armée de chenilles, et que le sergent Chesterfield et le caporal Blutch sont en plein voyage à Versailles, selon le théorème de puthagore, nous sommes parrallèlle à l'équateur lunaire lui même alignés avec les astres dimensionnels. Je rajoute 6, je décale le 7, je retiens 32, je te nique le 8, j'ajoute la TVA, les împots et le fisc. Je peux donc en conclure que mon fuseau horraire est le même que celui du méridien de Greenwich a svoir le point de cordonnées (0;0;0), soit: `(UTC, +0000)`.
+
+En reprenant le calcul d'avant, on y ajoute la clause des liaisons de Van der Waals afin de déduire que nous ne sommes pas synchronisé à un serveur NTP (sah quel dommage).
+
+Donc après avoir fait un `timedatectl list-timezones`, j'ai chois de me poser sur le fuseau horraire de Nairobi, parce que why not.  
+So let's do this: `sudo timedatectl set-timezone Africa/Nairobi`, et paf! ça fait des chocapics.
+
+### 3 - Change pseudo but forgot password
+
+Non mais là tu nous prends pour des grosses merde, là c'est non Léo, je peux pas travailler dasn des conditions pareilles, c'est négatif.
+
+```bash
+[vagrant@tp3 /]$ hostname
+hostname
+tp3
+```
+
+Et si je veux le changer:
+
+```bash
+[vagrant@tp3 /]$ cat /etc/hostname
+tp3
+[vagrant@tp3 /]$ sudo nano /etc/hostname
+[vagrant@tp3 /]$ cat /etc/hostname
+WIN7 > Linux > it4
+```
