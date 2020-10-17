@@ -3,8 +3,9 @@
 ## 0 - Prérequis
 
 
--> go check vagrantfile (use utput.iso.repackage.lnk from tp2 because why not)  
-![](../images/doit.gif)
+-> go check vagrantfile  
+![](../images/doit.gif)  
+(use utput.iso.repackage.lnk from tp2 because why not)
 
 
 ```bash
