@@ -3,7 +3,9 @@
 ## 0 - Prérequis
 
 
--> go check vagrantfile (use utput.iso.repackage.lnk from tp2 because why not)
+-> go check vagrantfile (use utput.iso.repackage.lnk from tp2 because why not)  
+![](../images/doit.gif)
+
 
 ```bash
 [vagrant@tp3 .ssh]$ sudo systemctl list-unit-files -t service
@@ -521,7 +523,7 @@ Désormais, le backup se lance sans grogner ou retourner d'erreur. Comme quoi un
 
 ![](../images/mcgonagal.png)
 
-Ensuite fais un `ctrl + f` et tape ".service" dans la barre de recherche pour trouver tout les services présent sur le diagramme. Puis à toi de cherhcer les plus long à démarrer.  
+Ensuite fais un `ctrl + f` et tape ".service" dans la barre de recherche pour trouver tout les services présent sur le diagramme. Puis à toi de chercher les plus long à démarrer.  
 La légende raconte que les 3 grosses feignasses du groupe sont:
 > - systemd-logind.service (4.494s)
 > - chronyd.service (4.532s)
@@ -546,6 +548,8 @@ NTP synchronized: no
 
 Alors, sachant que Migwel possède trois pommes, que son ami Tuyo lui, a une armée de chenilles, et que le sergent Chesterfield et le caporal Blutch sont en plein voyage à Versailles, selon le théorème de puthagore, nous sommes parrallèlle à l'équateur lunaire lui même alignés avec les astres dimensionnels. Je rajoute 6, je décale le 7, je retiens 32, je te nique le 8, j'ajoute la TVA, les împots et le fisc. Je peux donc en conclure que mon fuseau horraire est le même que celui du méridien de Greenwich a svoir le point de cordonnées (0;0;0), soit: `(UTC, +0000)`.
 
+![](../images/iq.jpg)
+
 En reprenant le calcul d'avant, on y ajoute la clause des liaisons de Van der Waals afin de déduire que nous ne sommes pas synchronisé à un serveur NTP (sah quel dommage).
 
 Donc après avoir fait un `timedatectl list-timezones`, j'ai chois de me poser sur le fuseau horraire de Nairobi, parce que why not.  
@@ -554,6 +558,8 @@ So let's do this: `sudo timedatectl set-timezone Africa/Nairobi`, et paf! ça fa
 ### 3 - Change pseudo but forgot password
 
 Non mais là tu nous prends pour des grosses merde, là c'est non Léo, je peux pas travailler dasn des conditions pareilles, c'est négatif.
+
+![](../images/mah.jpg)
 
 ```bash
 [vagrant@tp3 /]$ hostname
