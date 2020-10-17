@@ -1,3 +1,13 @@
+# BONSOIR AVENTURIER
+## Ici tu trouveras plein d'explications qui finalement n'en sont pas vu que rien n'y est expliqué.
+## Juste des lignes de commandes retracant tout le travail fait pour atteindre les plus grands sommets.
+
+### P.S. :
+
+![](../images/prank2.png)
+
+## Partie serveur python
+
 ```bash
 -- Unit pyserveur.service has begun starting up.
 Oct 09 19:56:06 tp3 systemd[19202]: Failed at step USER spawning /usr/bin/sudo: No such process
@@ -410,6 +420,7 @@ TimeoutSec=15000
 WantedBy=multi-user.target
 ```
 
+## Partie Sauvegarde
 
 ```bash
 [claquettechaussette@tp3 /]$ sudo systemctl cat backup
@@ -445,6 +456,3 @@ sudo mkdir /opt/backup
 [Oct 14 14:39:47] [INFO] Starting backup.
 [Oct 14 14:39:47] [INFO] Success. Backup tmp_201014_143947.tar.gz has been saved to /opt/backup/.
 ```
-
-rajouter la destination des backup a la fin de execstart dans le .service
-créer le dossier de destination

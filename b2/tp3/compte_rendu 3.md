@@ -403,7 +403,7 @@ Allé tchâo.
 
 
 
-En soit ca foncctionne et ça marche, quoi de mieux ?
+En soit ca fonctionne et ça marche, quoi de mieux ?
 ```bash
 [vagrant@tp3 ~]$ sudo systemctl status pyserveur.service
 ● pyserveur.service - Un serveur python ?
