@@ -281,7 +281,7 @@ grep: /proc/sys/vm/compact_memory: Permission denied
 ^C
 ```
 
-![](../images/200.gif)
+![](../images/kratospc.gif)
 
 It didn't change anything unless now, I know that I have a shitty CLI.
 
