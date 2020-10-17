@@ -474,7 +474,8 @@ tmp_201014_143947.tar.gz  tmp_201014_151245.tar.gz  tmp_201014_151714.tar.gz
 ```
 
 ...  
-Je comprends plus rien...
+![](../images/friezamaths.jpg)
+(Je comprends plus rien...)
 
 Et maintenant le timer. Il se présente sous cette forme:
 
@@ -517,7 +518,10 @@ Oct 14 15:53:48 tp3 backup.sh[3767]: [Oct 14 15:53:48] [INFO] Success. Backup tm
 Hint: Some lines were ellipsized, use -l to show in full.
 ```
 
-Désormais, le backup se lance sans grogner ou retourner d'erreur. Comme quoi une fois qu'on lui a attribué une horloge il sait quoi faire. Tu la vois la métaphore ou pas ? Eh question bonus: sans temporalité, sans secondes, minutes, heures, jours, mois, année... On est quoi au final ?
+Désormais, le backup se lance sans grogner ou retourner d'erreur.  
+Us be like:  
+![](../images/crusaders.jpg)
+Comme quoi une fois qu'on lui a attribué une horloge il sait quoi faire. Tu la vois la métaphore ou pas ? Eh question bonus: sans temporalité, sans secondes, minutes, heures, jours, mois, année... On est quoi au final ?
 
 ## II - [Develloppers feat. Godefroy](https://www.youtube.com/watch?v=KMU0tzLwhbE)
 ### 1 - Gestion de boot
@@ -558,9 +562,10 @@ So let's do this: `sudo timedatectl set-timezone Africa/Nairobi`, et paf! ça fa
 
 ### 3 - Change pseudo but forgot password
 
-Non mais là tu nous prends pour des grosses merde, là c'est non Léo, je peux pas travailler dasn des conditions pareilles, c'est négatif.
+Non mais là t'abuses, là c'est un non Léo, je peux pas travailler dans des conditions pareilles, c'est négatif, on est quoi pour toi ? Non mais sérieusement, gars... tu peux pas, non tu peux pas nous faire ça.
 
-![](../images/mah.jpg)
+![](../images/joke.png)
+
 
 ```bash
 [vagrant@tp3 /]$ hostname
@@ -577,3 +582,13 @@ tp3
 [vagrant@tp3 /]$ cat /etc/hostname
 WIN7 > Linux > it4
 ```
+
+`WIN7 > Linux > it4`
+
+### WIN7 > Linux > it4
+
+## WIN7 > Linux > it4
+
+# WIN7 > it4
+
+![](../images/starlord.gif)
