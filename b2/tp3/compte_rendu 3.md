@@ -397,7 +397,7 @@ TimeoutSec=15000
 WantedBy=multi-user.target
 ```
 
-n'en dis pas plus je sais que tu te souviens de cette fameuse péripétie de `lou clâquettechôsette`, tu vois très bien ce qu'il s'est passé, j'en déduis que par le pouvoir des Niquelalogiquenciens je peux skip les [explications]().
+N'en dis pas plus je sais que tu te souviens de cette fameuse péripétie de `lou clâquettechôsette`, tu vois très bien ce qu'il s'est passé, j'en déduis que par le pouvoir des Niquelalogiquenciens je peux skip les [explications](./explications.md).
 
 Allé tchâo.
 
